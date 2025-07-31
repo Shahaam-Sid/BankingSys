@@ -1,3 +1,4 @@
+#class file
 class BankingFn:
     def __init__(self, amount):
         self.amount = amount
@@ -30,8 +31,9 @@ class Deposit(BankingFn):
 
 class Withdraw(BankingFn):
     def __init__(self, amount, bal):
-        super().__init__(amount)
         self.bal = bal
+        super().__init__(amount)
+
         
 
     @BankingFn.amount.setter

@@ -11,7 +11,7 @@ class BankingFn:
         if value >= 0:
             self._amount = value
         else:
-            raise ValueError("Amount Cannot be Negative")
+            raise ValueError("Value must be positive")
             
             
     def __repr__(self):
@@ -24,7 +24,23 @@ class CheckBalance:
     def __str__(self):
         return f"You Balance is ${self.bal:.2f}"
     
+    
+class Deposit(BankingFn):
+    pass
 
+class Withdraw(BankingFn):
+    def __init__(self, amount, bal):
+        super().__init__(amount)
+        self.bal = bal
+        
 
-a = CheckBalance(200)
-print(a)
+    @BankingFn.amount.setter
+    def amount(self, value):
+        if value >= 0 and value <= self.bal:
+            self._amount = value
+        else:
+            raise ValueError("Value must be Positive and Lesser then your Current Balance")
+            
+            
+    def __repr__(self):
+        return f"Amount({self._amount}), Balance({self.bal})"

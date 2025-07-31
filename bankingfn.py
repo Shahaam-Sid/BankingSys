@@ -17,10 +17,14 @@ class BankingFn:
     def __repr__(self):
         return f"Amount({self._amount})"
     
+class CheckBalance:
+    def __init__(self, bal):
+        self.bal = bal
+        
+    def __str__(self):
+        return f"You Balance is ${self.bal:.2f}"
     
-    
-#test cases
-a.amount = 10
 
-print(a)    
-    
+
+a = CheckBalance(200)
+print(a)
